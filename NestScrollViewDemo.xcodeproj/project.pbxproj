@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3C269AD121F21DBC00A08AF5 /* NestScrollCustomHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C269AD021F21DBC00A08AF5 /* NestScrollCustomHeadView.m */; };
+		3C493D8421F5E35A00EEBD34 /* CollectionViewLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C493D8321F5E35A00EEBD34 /* CollectionViewLabelCell.m */; };
+		3C493D8721F5E61000EEBD34 /* CollectionViewColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C493D8621F5E61000EEBD34 /* CollectionViewColorCell.m */; };
 		3C4C72D321EB5439003E5E72 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4C72D221EB5439003E5E72 /* AppDelegate.m */; };
 		3C4C72D621EB5439003E5E72 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4C72D521EB5439003E5E72 /* ViewController.m */; };
 		3C4C72D921EB5439003E5E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C4C72D721EB5439003E5E72 /* Main.storyboard */; };
@@ -22,6 +24,10 @@
 /* Begin PBXFileReference section */
 		3C269ACF21F21DBC00A08AF5 /* NestScrollCustomHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NestScrollCustomHeadView.h; sourceTree = "<group>"; };
 		3C269AD021F21DBC00A08AF5 /* NestScrollCustomHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NestScrollCustomHeadView.m; sourceTree = "<group>"; };
+		3C493D8221F5E35A00EEBD34 /* CollectionViewLabelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewLabelCell.h; sourceTree = "<group>"; };
+		3C493D8321F5E35A00EEBD34 /* CollectionViewLabelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewLabelCell.m; sourceTree = "<group>"; };
+		3C493D8521F5E61000EEBD34 /* CollectionViewColorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewColorCell.h; sourceTree = "<group>"; };
+		3C493D8621F5E61000EEBD34 /* CollectionViewColorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewColorCell.m; sourceTree = "<group>"; };
 		3C4C72CE21EB5439003E5E72 /* NestScrollViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestScrollViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C4C72D121EB5439003E5E72 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C4C72D221EB5439003E5E72 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +57,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C493D8121F5E28800EEBD34 /* collectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3C493D8221F5E35A00EEBD34 /* CollectionViewLabelCell.h */,
+				3C493D8321F5E35A00EEBD34 /* CollectionViewLabelCell.m */,
+				3C493D8521F5E61000EEBD34 /* CollectionViewColorCell.h */,
+				3C493D8621F5E61000EEBD34 /* CollectionViewColorCell.m */,
+			);
+			path = collectionViewCell;
+			sourceTree = "<group>";
+		};
 		3C4C72C521EB5439003E5E72 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +88,7 @@
 		3C4C72D021EB5439003E5E72 /* NestScrollViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3C493D8121F5E28800EEBD34 /* collectionViewCell */,
 				3C4C72D121EB5439003E5E72 /* AppDelegate.h */,
 				3C4C72D221EB5439003E5E72 /* AppDelegate.m */,
 				3C4C72D421EB5439003E5E72 /* ViewController.h */,
@@ -188,6 +206,8 @@
 				3C4C72EB21EB6147003E5E72 /* NestScrollViewHeadView.m in Sources */,
 				3C269AD121F21DBC00A08AF5 /* NestScrollCustomHeadView.m in Sources */,
 				3C4C72D621EB5439003E5E72 /* ViewController.m in Sources */,
+				3C493D8421F5E35A00EEBD34 /* CollectionViewLabelCell.m in Sources */,
+				3C493D8721F5E61000EEBD34 /* CollectionViewColorCell.m in Sources */,
 				3C4C72EE21EB6299003E5E72 /* NestScrollView.m in Sources */,
 				3C4C72F221EB6B66003E5E72 /* PageViewCell.m in Sources */,
 				3C4C72E121EB543A003E5E72 /* main.m in Sources */,

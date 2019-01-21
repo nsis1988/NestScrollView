@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 - (CGFloat)minimumLineSpacingForPageViewCell:(PageViewCell *)pageViewCell;
 - (CGFloat)minimumInteritemSpacingForPageViewCell:(PageViewCell *)pageViewCell;
+- (UIEdgeInsets)insetForPageViewCell:(PageViewCell *)pageViewCell;
 - (void)pageViewCell:(PageViewCell *)pageViewCell didSelectItemAtIndex:(NSInteger )index;
 @end
 @protocol PageViewCellDataSource <NSObject>

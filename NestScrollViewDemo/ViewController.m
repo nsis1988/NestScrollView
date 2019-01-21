@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "NestScrollCustomHeadView.h"
 #import "NestScrollView.h"
+#import "CollectionViewLabelCell.h"
+#import "CollectionViewColorCell.h"
 
 @interface ViewController ()<NestScrollViewDelegate,NestScrollViewDataSource>
 @property (nonatomic, strong) NestScrollView *contentView;
@@ -29,7 +31,34 @@
 
 #pragma mark - NestScrollViewDelegate
 - (CGSize)nestScrollView:(NestScrollView *)nestScrollView sizeForItemAtPageIndexPath:(PageIndexPath *)pageIndexPath {
-    return CGSizeMake(CGRectGetWidth(nestScrollView.bounds), 40);
+    if (pageIndexPath.page == 0) {
+        return CGSizeMake(CGRectGetWidth(nestScrollView.bounds) - 10, 40);
+    }
+    else {
+        CGFloat width = (CGRectGetWidth(self.view.bounds) - 2*3)/2;
+        return CGSizeMake(width, width);
+    }
+}
+
+- (CGFloat)nestScrollView:(NestScrollView *)nestScrollView minimumLineSpacingForPage:(NSInteger)page {
+    if (page == 1) {
+        return 2.f;
+    }
+    return 0.f;
+}
+- (CGFloat)nestScrollView:(NestScrollView *)nestScrollView minimumInteritemSpacingForPage:(NSInteger)page {
+    if (page == 1) {
+        return 2.f;
+    }
+    return 0.f;
+}
+- (UIEdgeInsets)nestScrollView:(NestScrollView *)nestScrollView insetForPage:(NSInteger)page {
+    if (page == 1) {
+        return UIEdgeInsetsMake(0, 2, 0, 2);
+    }
+    else {
+        return UIEdgeInsetsMake(0, 10, 0, 0);
+    }
 }
 
 #pragma mark - NestScrollViewDataSource
@@ -43,23 +72,23 @@
 }
 
 - (NSDictionary<NSString*,NSString*>*)cellMapOfPageIndex:(NSInteger)pageIndex {
-    return @{@"default":NSStringFromClass([UICollectionViewCell class])};
+    return @{@"label":NSStringFromClass([CollectionViewLabelCell class]),
+             @"color":NSStringFromClass([CollectionViewColorCell class])
+             };
 }
 
 - (UICollectionViewCell *)nestScrollView:(NestScrollView *)nestScrollView collectionView:(nonnull UICollectionView *)collectionView itemForPageIndexPath:(nonnull PageIndexPath *)pageIndexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"default" forIndexPath:[NSIndexPath indexPathForRow:pageIndexPath.row inSection:0]];
-    if (cell == nil) {
-        cell = [[UICollectionViewCell alloc]init];
-    }
     NSArray *items = self.datas[pageIndexPath.page];
-    UILabel *label = [[UILabel alloc]initWithFrame:cell.bounds];
-    label.text = items[pageIndexPath.row]?:@"空";
-    for (UIView *view in [cell.contentView subviews]) {
-        [view removeFromSuperview];
+    if (pageIndexPath.page == 0) {
+        CollectionViewLabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"label" forIndexPath:[NSIndexPath indexPathForRow:pageIndexPath.row inSection:0]];
+        cell.title = items[pageIndexPath.row]?:@"";
+        return cell;
     }
-    cell.contentView.backgroundColor = [UIColor whiteColor];
-    [cell.contentView addSubview:label];
-    return cell;
+    else {
+        CollectionViewColorCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"color" forIndexPath:[NSIndexPath indexPathForRow:pageIndexPath.row inSection:0]];
+        cell.title = items[pageIndexPath.row]?:@"";
+        return cell;
+    }
 }
 
 #pragma mark - property
@@ -96,7 +125,7 @@
         }
         NSMutableArray *arr2 = [[NSMutableArray alloc]init];
         for (int i = 0; i< 30; i++) {
-            [arr2 addObject:[NSString stringWithFormat:@"第二个标签第%d个",i]];
+            [arr2 addObject:[NSString stringWithFormat:@"%d",i]];
         }
         [_datas addObjectsFromArray:@[arr1,arr2]];
     }

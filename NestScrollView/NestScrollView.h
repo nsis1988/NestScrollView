@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 - (CGFloat)nestScrollView:(NestScrollView *)nestScrollView minimumLineSpacingForPage:(NSInteger)page;
 - (CGFloat)nestScrollView:(NestScrollView *)nestScrollView minimumInteritemSpacingForPage:(NSInteger)page;
+- (UIEdgeInsets)nestScrollView:(NestScrollView *)nestScrollView insetForPage:(NSInteger)page;
 - (void)nestScrollView:(NestScrollView *)nestScrollView didSelectItemAtPageIndexPath:(PageIndexPath *)pageIndexPath;
 
 @end

@@ -146,6 +146,13 @@
     return 0.f;
 }
 
+- (UIEdgeInsets)insetForPageViewCell:(PageViewCell *)pageViewCell {
+    if (self.delegate && [self.delegate conformsToProtocol:@protocol(NestScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(nestScrollView:insetForPage:)]) {
+        return [self.delegate nestScrollView:self insetForPage:pageViewCell.pageIndex];
+    }
+    return UIEdgeInsetsZero;
+}
+
 - (void)pageViewCell:(PageViewCell *)pageViewCell didSelectItemAtIndex:(NSInteger)index {
     if (self.delegate && [self.delegate conformsToProtocol:@protocol(NestScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(nestScrollView:didSelectItemAtPageIndexPath:)]) {
         PageIndexPath *pageIndexPath = [PageIndexPath pageIndexPathWithRow:index page:pageViewCell.pageIndex];

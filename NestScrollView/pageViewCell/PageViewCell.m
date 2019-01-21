@@ -67,6 +67,12 @@
     }
     return 0.f;
 }
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if (self.delegate && [self.delegate conformsToProtocol:@protocol(PageViewCellDelegate)] && [self.delegate respondsToSelector:@selector(insetForPageViewCell:)]) {
+        return [self.delegate insetForPageViewCell:self];
+    }
+    return UIEdgeInsetsZero;
+}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.delegate && [self.delegate conformsToProtocol:@protocol(PageViewCellDelegate)] && [self.delegate respondsToSelector:@selector(pageViewCell:didSelectItemAtIndex:)]) {
         [self.delegate pageViewCell:self didSelectItemAtIndex:indexPath.row];
